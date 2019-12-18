@@ -55,6 +55,29 @@ RSpec.describe User, type: :model do
       expect(@user).not_to be_valid
     end
 
+  describe ".authenticate_with_credentials" do
+
+    it "is invalid with an authenticated email" do
+      user101 = User.create(first_name: "Buddy", last_name: "theElf", email: "elf@gmail.ca", password: "password", password_confirmation: "password")
+      expect(User.authenticate_with_credentials("cd@gmail.com", "password")).to be_nil
+    end
+
+    it "is valid if the user can be authenticatd"
+      user102 = User.create(first_name: "Buddy", last_name: "theElf", email: "elf@gmail.com", password: "password", password_confirmation: "password")
+      expect(User.authenticate_with_credentials("elf@gmail.com", "password")).to be_valid
+    end
+
+    it "user is valid after removing whitespace"
+      user103 = User.create(first_name: "Buddy", last_name: "theElf", email: "elf@gmail.com", password: "password", password_confirmation: "password")
+      expect(User.authenticate_with_credentials("  elf@gmail.com", "password")).to be_truthy.and have_attributes(:email => "elf@gmail.com")
+    end
+
+    it "user is valid after changing to lowercase"
+      user103 = User.create(first_name: "Buddy", last_name: "theElf", email: "elf@gmail.com", password: "password", password_confirmation: "password")
+      expect(User.authenticate_with_credentials("eLF@gmail.com", "password")).to be_truthy.and have_attributes(:email => "elf@gmail.com")
+    end
+
   end
 
-end 
+end
+
