@@ -26,6 +26,7 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
     # VERIFY
     expect(page).to have_css 'article.product', count: 10
 
+    # IMAGE SUPPORTS
     @category.products.create!(
       name:  Faker::Hipster.sentence(3),
       description: Faker::Hipster.paragraph(4),
