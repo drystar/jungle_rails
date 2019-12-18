@@ -1,7 +1,28 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2 for purposes of learning Rails by instructor lead examples.
 
+# Functions
+
+Jungle is a shopping website where a user, regardless if logged in or not, can add items to their cart and purchase the item using a stripe payments system
+
+# Learning Outcomes
+
+- Become familiar with Ruby and the Rails framework
+- Learn how to navigate an existing code-base
+- Use existing code style and approach to implement new features in unfamiliar territory
+- Apply previous learning tactics to research and become familiar with a new paradigm, language and framework
+- Implement feature and bug-fix request solution and automated testing
+
+# Final Product
+
+!["home_page"](https://github.com/drystar/jungle_rails/blob/master/docs/home.png?raw=true)
+
+!["elect_category"](https://github.com/drystar/jungle_rails/blob/master/docs/category.png?raw=true)
+
+!["my_cart"](https://github.com/drystar/jungle_rails/blob/master/docs/my_cart.png?raw=true)
+
+!["admin_products"](https://github.com/drystar/jungle_rails/blob/master/docs/admin_products.png?raw=true)
 
 ## Setup
 
@@ -22,6 +43,7 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Dependencies
 
-* Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
-* PostgreSQL 9.x
-* Stripe
+- Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
+- PostgreSQL 9.x
+- Stripe
+- Capybara & Poltergeist
