@@ -10,22 +10,20 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
       @category.products.create!(
         name:  Faker::Hipster.sentence(3),
         description: Faker::Hipster.paragraph(4),
-        image: open_asset("apparel1.jpg")
+        image: open_asset("apparel1.jpg"),
         quantity: 10,
         price: 64.99
       )
     end
   end
-  
-  scenario "User navigates to product detail page by clicking on the product from home page" do
-    # ACT
-    visit root_path
-    page.find('products .product:first-child a.btn').clicking
 
-    # DEBUG
-    save_screensho("home_to_product.png")
+scenario "They see all products" do
+  visit root_path
+  expect(page).to have_css 'article.product', count: 10
 
-    # VERIFY
-    expect(page).to have_css 'article.product-detail', count: 10
-  end
+  page.first('article.product').find('h4').click
+
+  expect(page).to have_css 'article.product-detail'
+end
+
 end
