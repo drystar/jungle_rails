@@ -33,9 +33,14 @@ module Jungle
       g.skip_routes  true
       g.helper       false
       g.assets       false
+    
     end
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # config/application.rb
+    config.assets.initialize_on_precompile = false
+    
   end
 end
